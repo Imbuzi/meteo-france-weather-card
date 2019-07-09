@@ -70,10 +70,10 @@ function getWindDirectionRotation(direction) {
 function getVigilance(color, alertEntity) {
   let phenomenaIcons = {
     "Vent violent": "mdi:weather-windy",
-    "Pluie-innodation": "mdi:weather-pouring",
-    "Orages": "mdi:weather-lightning",
+    "Pluie-inondation": "mdi:weather-pouring",
+    "Orages": "mdi:flash-alert",
     "Inondation": "mdi:water",
-    "Neige-verglas": "mdi:weather-snowy",
+    "Neige-verglas": "mdi:snowflake-alert",
     "Canicule": "mdi:thermometer-alert",
     "Grand-froid": "mdi:snowflake",
     "Avalanches": "mdi:image-filter-hdr",
