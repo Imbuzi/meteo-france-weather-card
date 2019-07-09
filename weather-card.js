@@ -495,9 +495,8 @@ class WeatherCard extends LitElement {
           display: block;
           height: 100%;
           float: left;
-          width: calc((100% / 12) - 1px);
+          width: calc(100% / 12);
           background-color: #e3f2fd;
-          border-right: 1px solid #9e9e9e;
         }
         
         .pluie-element.unknown {
@@ -516,7 +515,6 @@ class WeatherCard extends LitElement {
         .pluie-element:last-child {
           border-top-right-radius: 5px;
           border-bottom-right-radius: 5px;
-          border-right: 0px;
         }
 
         .clear {
