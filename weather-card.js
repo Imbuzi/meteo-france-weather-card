@@ -434,7 +434,10 @@ class WeatherCard extends LitElement {
   }
 
   getWeatherIcon(condition, sun) {
-    return `${
+    console.log(condition);
+    console.log(sun);
+    console.log(icon);
+    let icon = `${
       this._config.icons
         ? this._config.icons
         : "https://cdn.jsdelivr.net/gh/bramkragten/custom-ui@master/weather-card/icons/animated/"
@@ -443,6 +446,7 @@ class WeatherCard extends LitElement {
         ? weatherIconsNight[condition]
         : weatherIconsDay[condition]
     }.svg`;
+    return icon;
   }
 
   getUnit(measure) {
