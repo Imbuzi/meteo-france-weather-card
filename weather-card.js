@@ -26,6 +26,7 @@ const weatherIconsNight = {
   ...weatherIconsDay,
   clear: "night",
   sunny: "night",
+  "nuit claire": "night",
   partlycloudy: "cloudy-night-3",
   "windy-variant": "cloudy-night-3"
 };
@@ -436,7 +437,6 @@ class WeatherCard extends LitElement {
   getWeatherIcon(condition, sun) {
     console.log(condition);
     console.log(sun);
-    console.log(icon);
     let icon = `${
       this._config.icons
         ? this._config.icons
@@ -446,6 +446,7 @@ class WeatherCard extends LitElement {
         ? weatherIconsNight[condition]
         : weatherIconsDay[condition]
     }.svg`;
+    console.log(icon);
     return icon;
   }
 
