@@ -435,8 +435,6 @@ class WeatherCard extends LitElement {
   }
 
   getWeatherIcon(condition, sun) {
-    console.log(condition);
-    console.log(sun);
     let icon = `${
       this._config.icons
         ? this._config.icons
@@ -446,7 +444,6 @@ class WeatherCard extends LitElement {
         ? weatherIconsNight[condition]
         : weatherIconsDay[condition]
     }.svg`;
-    console.log(icon);
     return icon;
   }
 
