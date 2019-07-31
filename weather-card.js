@@ -281,7 +281,7 @@ class WeatherCard extends LitElement {
                     ><ha-icon icon="mdi:navigation" style="transform: rotate(${getWindDirectionRotation(stateObj.attributes.wind_bearing)}deg);"></ha-icon
                   ></span>
                 `
-                : html`<br style="line-height: 24px;" />`
+                : html``
               }
               ${stateObj.attributes.wind_bearing}
               <br />
