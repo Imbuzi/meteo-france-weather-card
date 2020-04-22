@@ -97,7 +97,7 @@ function getVigilance(color, alertEntity) {
 
 function getRainForecast(rainForecastEntity) {
   
-  let rainForecastColors = ["#e3f2fd", "#64b5f6", "#1e88e5", "#0d47a1"];
+  let rainForecastColors = ["rgba(95,155,234,0.1)", "rgba(95,155,234,0.4)", "rgba(95,155,234,0.7)", "rgba(95,155,234,1)"];
   let rainForecastTexts = ["Pas de pluie", "Pluie faible", "Pluie modérée", "Pluie forte"];
   
   let rainForecastList = [];
