@@ -295,9 +295,14 @@ class WeatherCard extends LitElement {
                 `
                 : html`<div style="height: 24px;" ></div>`
               }
-              ${stateObj.attributes.wind_bearing}
-              <br />
-              <div style="height: 24px;" ></div>
+              ${
+                stateObj.attributes.wind_bearing != undefined
+                ? html`
+                  stateObj.attributes.wind_bearing
+                  <br />
+                `
+                : html`<div style="height: 24px;" ></div>`
+              }
               ${
                 uvObj != undefined
                 ? html`
