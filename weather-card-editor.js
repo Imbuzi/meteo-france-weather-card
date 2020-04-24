@@ -54,6 +54,10 @@ export class WeatherCardEditor extends LitElement {
   get _alertEntity() {
     return this._config.alertEntity || "";
   }
+  
+  get _uvEntity() {
+    return this._config.uvEntity || "";
+  }
 
   get _rainForecastEntity() {
     return this._config.rainForecastEntity || "";
@@ -125,6 +129,27 @@ export class WeatherCardEditor extends LitElement {
                     label="Risque de pluie"
                     .value="${this._rainChanceEntity}"
                     .configValue="${"rainChanceEntity"}"
+                    @value-changed="${this._valueChanged}"
+                  ></paper-input>
+                `
+          }
+          ${
+            customElements.get("ha-entity-picker")
+              ? html`
+                  <ha-entity-picker
+                    .hass="${this.hass}"
+                    .value="${this._entity}"
+                    .configValue=${"entity"}
+                    domain-filter="sensor"
+                    @change="${this._valueChanged}"
+                    allow-custom-entity
+                  ></ha-entity-picker>
+                `
+              : html`
+                  <paper-input
+                    label="UV"
+                    .value="${this._entity}"
+                    .configValue="${"entity"}"
                     @value-changed="${this._valueChanged}"
                   ></paper-input>
                 `
