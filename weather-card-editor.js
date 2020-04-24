@@ -138,8 +138,8 @@ export class WeatherCardEditor extends LitElement {
               ? html`
                   <ha-entity-picker
                     .hass="${this.hass}"
-                    .value="${this._entity}"
-                    .configValue=${"entity"}
+                    .value="${this._uvEntity}"
+                    .configValue=${"uvEntity"}
                     domain-filter="sensor"
                     @change="${this._valueChanged}"
                     allow-custom-entity
@@ -148,8 +148,8 @@ export class WeatherCardEditor extends LitElement {
               : html`
                   <paper-input
                     label="UV"
-                    .value="${this._entity}"
-                    .configValue="${"entity"}"
+                    .value="${this._uvEntity}"
+                    .configValue="${"uvEntity"}"
                     @value-changed="${this._valueChanged}"
                   ></paper-input>
                 `
