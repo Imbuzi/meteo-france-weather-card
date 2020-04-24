@@ -304,7 +304,7 @@ class WeatherCard extends LitElement {
                   <span title="${uvObj.attributes.friendly_name}" class="ha-icon"
                     ><ha-icon icon="${uvObj.attributes.icon === undefined ? 'mdi:sunglasses' : uvObj.attributes.icon}"></ha-icon
                   ></span>
-                  ${uvObj.state}
+                  UV ${uvObj.state}
                   <br />
                 `
                 : html`<div style="height: 24px;" ></div>`
