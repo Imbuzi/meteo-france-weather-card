@@ -169,6 +169,7 @@ class WeatherCard extends LitElement {
     const freezeChanceObj = this.hass.states[this._config.freezeChanceEntity];
     const alertObj = this.hass.states[this._config.alertEntity];
     const rainForecastObj = this.hass.states[this._config.rainForecastEntity];
+    const uvObj = this.hass.states[this._config.uvEntity];
 
     if (!stateObj) {
       return html`
@@ -273,7 +274,17 @@ class WeatherCard extends LitElement {
               ${stateObj.attributes.wind_speed}<span class="unit">
                 ${this.getUnit("length")}/h
               </span>
-              <br />
+              ${
+                uvObj != undefined
+                ? html`
+                  <span title="${uvObj.attributes.friendly_name}" class="ha-icon"
+                    ><ha-icon icon="${uvObj.attributes.icon === undefined ? 'mdi:sunglasses' : uvObj.attributes.icon}"></ha-icon
+                  ></span>
+                  ${uvObj.state}
+                  <br />
+                `
+                : html`<br style="line-height: 24px;" />`
+              }
               ${
                 stateObj.attributes.wind_speed != 0
                 ? html`
