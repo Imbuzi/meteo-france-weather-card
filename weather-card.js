@@ -285,6 +285,7 @@ class WeatherCard extends LitElement {
               ${stateObj.attributes.wind_speed}<span class="unit">
                 ${this.getUnit("length")}/h
               </span>
+              <br />
               ${
                 stateObj.attributes.wind_speed != 0
                 ? html`
