@@ -300,6 +300,7 @@ class WeatherCard extends LitElement {
                 ? html`
                   ${stateObj.attributes.wind_bearing}
                   <br />
+                  <div style="height: 24px;" ></div>
                 `
                 : html`<div style="height: 24px;" ></div>`
               }
