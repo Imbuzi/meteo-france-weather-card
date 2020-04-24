@@ -551,16 +551,15 @@ class WeatherCard extends LitElement {
         }
         
         .vigilance.jaune {
-          background-color: #ffeb3b;
+          background-color: rgba(255,235,0,0.3);
         }
         
         .vigilance.orange {
-          background-color: #ff9800;
+          background-color: rgba(255,152,0,0.3);
         }
         
         .vigilance.rouge {
-          background-color: #f44336;
-          color: var(--text-dark-color);
+          background-color: rgba(244,67,54,0.3);
         }
 
         .title {
