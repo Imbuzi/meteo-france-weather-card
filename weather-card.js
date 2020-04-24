@@ -261,6 +261,17 @@ class WeatherCard extends LitElement {
                 `
                 : html`<br style="line-height: 24px;" />`
               }
+              ${
+                freezeChanceObj != undefined
+                ? html`
+                  <span title="${freezeChanceObj.attributes.friendly_name}" class="ha-icon"
+                    ><ha-icon icon="${freezeChanceObj.attributes.icon === undefined ? 'mdi:snowflake' : freezeChanceObj.attributes.icon}"></ha-icon
+                  ></span>
+                  ${freezeChanceObj.state}<span class="unit"> ${freezeChanceObj.attributes.unit_of_measurement} </span>
+                  <br />
+                `
+                : html`<br style="line-height: 24px;" />`
+              }
               <br />
               <span class="ha-icon"
                 ><ha-icon icon="mdi:weather-sunset-up"></ha-icon
@@ -275,17 +286,6 @@ class WeatherCard extends LitElement {
                 ${this.getUnit("length")}/h
               </span>
               ${
-                uvObj != undefined
-                ? html`
-                  <span title="${uvObj.attributes.friendly_name}" class="ha-icon"
-                    ><ha-icon icon="${uvObj.attributes.icon === undefined ? 'mdi:sunglasses' : uvObj.attributes.icon}"></ha-icon
-                  ></span>
-                  ${uvObj.state}
-                  <br />
-                `
-                : html`<br style="line-height: 24px;" />`
-              }
-              ${
                 stateObj.attributes.wind_speed != 0
                 ? html`
                   <span class="ha-icon"
@@ -297,12 +297,12 @@ class WeatherCard extends LitElement {
               ${stateObj.attributes.wind_bearing}
               <br />
               ${
-                freezeChanceObj != undefined
+                uvObj != undefined
                 ? html`
-                  <span title="${freezeChanceObj.attributes.friendly_name}" class="ha-icon"
-                    ><ha-icon icon="${freezeChanceObj.attributes.icon === undefined ? 'mdi:snowflake' : freezeChanceObj.attributes.icon}"></ha-icon
+                  <span title="${uvObj.attributes.friendly_name}" class="ha-icon"
+                    ><ha-icon icon="${uvObj.attributes.icon === undefined ? 'mdi:sunglasses' : uvObj.attributes.icon}"></ha-icon
                   ></span>
-                  ${freezeChanceObj.state}<span class="unit"> ${freezeChanceObj.attributes.unit_of_measurement} </span>
+                  ${uvObj.state}
                   <br />
                 `
                 : html`<br style="line-height: 24px;" />`
