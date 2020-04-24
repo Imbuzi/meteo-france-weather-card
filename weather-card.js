@@ -237,7 +237,7 @@ class WeatherCard extends LitElement {
                   ${rainChanceObj.state}<span class="unit"> ${rainChanceObj.attributes.unit_of_measurement} </span>
                   <br />
                 `
-                : html`<br style="line-height: 24px;" />`
+                : html`<div style="height: 24px;" ></div>`
               }
               ${
                 thunderChanceObj != undefined
@@ -248,7 +248,7 @@ class WeatherCard extends LitElement {
                   ${thunderChanceObj.state}<span class="unit"> ${thunderChanceObj.attributes.unit_of_measurement} </span>
                   <br />
                 `
-                : html`<br style="line-height: 24px;" />`
+                : html`<div style="height: 24px;" ></div>`
               }
               ${
                 snowChanceObj != undefined
@@ -259,7 +259,7 @@ class WeatherCard extends LitElement {
                   ${snowChanceObj.state}<span class="unit"> ${snowChanceObj.attributes.unit_of_measurement} </span>
                   <br />
                 `
-                : html`<br style="line-height: 24px;" />`
+                : html`<div style="height: 24px;" ></div>`
               }
               ${
                 freezeChanceObj != undefined
@@ -270,7 +270,7 @@ class WeatherCard extends LitElement {
                   ${freezeChanceObj.state}<span class="unit"> ${freezeChanceObj.attributes.unit_of_measurement} </span>
                   <br />
                 `
-                : html`<br style="line-height: 24px;" />`
+                : html`<div style="height: 24px;" ></div>`
               }
               <br />
               <span class="ha-icon"
@@ -293,11 +293,11 @@ class WeatherCard extends LitElement {
                     ><ha-icon icon="mdi:navigation" style="transform: rotate(${getWindDirectionRotation(stateObj.attributes.wind_bearing)}deg);"></ha-icon
                   ></span>
                 `
-                : html``
+                : html`<div style="height: 24px;" ></div>`
               }
               ${stateObj.attributes.wind_bearing}
               <br />
-              <br style="line-height: 24px;" />
+              <div style="height: 24px;" ></div>
               ${
                 uvObj != undefined
                 ? html`
@@ -307,7 +307,7 @@ class WeatherCard extends LitElement {
                   ${uvObj.state}
                   <br />
                 `
-                : html`<br style="line-height: 24px;" />`
+                : html`<div style="height: 24px;" ></div>`
               }
               <br />
               <span class="ha-icon"
