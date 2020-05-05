@@ -286,4 +286,4 @@ export class WeatherCardEditor extends LitElement {
   }
 }
 
-customElements.define("weather-card-editor", WeatherCardEditor);
+customElements.define("meteo-france-weather-card-editor", WeatherCardEditor);
