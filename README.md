@@ -19,18 +19,26 @@ The instructions aren't givent to install it self-hosted, as this is a standard 
 
 Add the following to resources in your lovelace config:
 
-https://cdn.jsdelivr.net/gh/Imbuzi/meteo-france-weather-card/weather-card.js
+```yaml
+resources:
+    url: https://cdn.jsdelivr.net/gh/Imbuzi/meteo-france-weather-card/meteo-france-weather-card.js
+    type: module
+```
 
 You can also specify a specific tag or version in the URL by adding @x.x :
 
-https://cdn.jsdelivr.net/gh/Imbuzi/meteo-france-weather-card@1.1/weather-card.js
+```yaml
+resources:
+    url: https://cdn.jsdelivr.net/gh/Imbuzi/meteo-france-weather-card@1.1/meteo-france-weather-card.js
+    type: module
+```
 
 ## Configuration
 
-And add a card with type `custom:weather-card`:
+And add a card with type `custom:meteo-france-weather-card`:
 
 ```yaml
-type: custom:weather-card
+type: custom:meteo-france-weather-card
 ```
 
 Then you can switch to visual editor to see the available options.
