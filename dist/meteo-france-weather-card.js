@@ -709,4 +709,4 @@ class WeatherCard extends LitElement {
     `;
   }
 }
-customElements.define("weather-card", WeatherCard);
+customElements.define("meteo-france-weather-card", WeatherCard);
