@@ -1,5 +1,5 @@
 {
     "name": "Météo France Weather Card",
-    "country": "FR"
+    "country": "FR",
     "render_readme": true
 }
