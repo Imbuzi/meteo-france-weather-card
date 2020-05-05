@@ -139,7 +139,7 @@ class WeatherCard extends LitElement {
 
   static async getConfigElement() {
     await import("./meteo-france-weather-card-editor.js");
-    return document.createElement("weather-card-editor");
+    return document.createElement("meteo-france-weather-card-editor");
   }
 
   static getStubConfig() {
