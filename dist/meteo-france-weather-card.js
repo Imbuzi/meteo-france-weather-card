@@ -72,10 +72,10 @@ function getVigilance(color, alertEntity) {
   let phenomenaIcons = {
     "Vent violent": "mdi:weather-windy",
     "Pluie-inondation": "mdi:weather-pouring",
-    "Orages": "mdi:flash-alert",
-    "Inondation": "mdi:water",
-    "Neige-verglas": "mdi:snowflake-alert",
-    "Canicule": "mdi:thermometer-alert",
+    "Orages": "mdi:weather-lightning",
+    "Inondation": "mdi:home-flood",
+    "Neige-verglas": "mdi:weather-snowy-heavy",
+    "Canicule": "mdi:weather-sunny-alert",
     "Grand-froid": "mdi:snowflake",
     "Avalanches": "mdi:image-filter-hdr",
     "Vagues-submersion": "mdi:waves"
