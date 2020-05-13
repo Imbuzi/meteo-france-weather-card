@@ -21,7 +21,7 @@ Add the following to resources in your lovelace config:
 
 ```yaml
 resources:
-    url: https://cdn.jsdelivr.net/gh/Imbuzi/meteo-france-weather-card/meteo-france-weather-card.js
+    url: https://cdn.jsdelivr.net/gh/Imbuzi/meteo-france-weather-card/dist/meteo-france-weather-card.js
     type: module
 ```
 
@@ -29,7 +29,7 @@ You can also specify a specific tag or version in the URL by adding @x.x :
 
 ```yaml
 resources:
-    url: https://cdn.jsdelivr.net/gh/Imbuzi/meteo-france-weather-card@1.1/meteo-france-weather-card.js
+    url: https://cdn.jsdelivr.net/gh/Imbuzi/meteo-france-weather-card@1.1/dist/meteo-france-weather-card.js
     type: module
 ```
 
