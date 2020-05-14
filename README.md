@@ -51,3 +51,18 @@ If you want to show the sunrise and sunset times, make sure the `sun` component 
 # Example configuration.yaml entry
 sun:
 ```
+
+This is a basic example of the config for a full-configured card (there is just missing the "icon" attribute, only needed to switch to another icon library) :
+
+```yaml
+type: 'custom:meteo-france-weather-card'
+name: Ville
+entity: weather.ville
+rainForecastEntity: sensor.ville_next_rain
+freezeChanceEntity: sensor.ville_freeze_chance
+rainChanceEntity: sensor.ville_rain_chance
+snowChanceEntity: sensor.ville_snow_chance
+thunderChanceEntity: sensor.ville_thunder_chance
+alertEntity: sensor.ville_weather_alert
+uvEntity: sensor.ville_uv
+```
