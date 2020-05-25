@@ -519,7 +519,15 @@ class WeatherCard extends LitElement {
           width: calc(100% / 12);
           background-color: #e3f2fd;
         }
-        
+
+        .pluie-element:not(:last-child) {
+          border-right: 1px solid var(
+              --lovelace-background,
+              var(--primary-background-color)
+          );
+          width: calc(100% / 12 - 1px);
+        }
+
         .pluie-element.unknown {
           display: block;
           height: 100%;
