@@ -5,7 +5,8 @@ const html = LitElement.prototype.html;
 
 const weatherIconsDay = {
   clear: "day",
-  "clear-night": "night",
+  "clear-night": "day",
+  "nuit claire": "day",
   cloudy: "cloudy",
   fog: "cloudy",
   hail: "rainy-7",
@@ -25,6 +26,7 @@ const weatherIconsDay = {
 const weatherIconsNight = {
   ...weatherIconsDay,
   clear: "night",
+  "clear-night": "night",
   sunny: "night",
   "nuit claire": "night",
   partlycloudy: "cloudy-night-3",
