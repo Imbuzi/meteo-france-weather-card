@@ -66,8 +66,8 @@ function getWindDirectionRotation(direction) {
     "SSE"
   ];
   
-  let direction = windDirections[direction/22.5];
-  return direction;
+  let name = windDirections[direction/22.5];
+  return name;
 }
 
 function getVigilance(color, alertEntity) {
