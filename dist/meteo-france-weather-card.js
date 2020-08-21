@@ -242,12 +242,12 @@ class WeatherCard extends LitElement {
                 : html`<div style="height: 24px;" ></div>`
               }
               ${
-                thunderChanceObj != undefined
+                cloudCoverObj != undefined
                 ? html`
-                  <span title="${thunderChanceObj.attributes.friendly_name}" class="ha-icon"
-                    ><ha-icon icon="${thunderChanceObj.attributes.icon === undefined ? 'mdi:weather-lightning' : thunderChanceObj.attributes.icon}"></ha-icon
+                  <span title="${cloudCoverObj.attributes.friendly_name}" class="ha-icon"
+                    ><ha-icon icon="${cloudCoverObj.attributes.icon === undefined ? 'mdi:weather-cloudy' : cloudCoverObj.attributes.icon}"></ha-icon
                   ></span>
-                  ${thunderChanceObj.state}<span class="unit"> ${thunderChanceObj.attributes.unit_of_measurement} </span>
+                  ${cloudCoverObj.state}<span class="unit"> ${cloudCoverObj.attributes.unit_of_measurement} </span>
                   <br />
                 `
                 : html`<div style="height: 24px;" ></div>`
