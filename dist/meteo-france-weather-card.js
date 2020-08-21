@@ -66,7 +66,7 @@ function getWindDirectionRotation(direction) {
     "SSE"
   ];
   
-  let name = windDirections[direction/22.5];
+  let name = windDirections[Math.round(direction/22.5)%16];
   return name;
 }
 
