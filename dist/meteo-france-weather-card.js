@@ -292,7 +292,7 @@ class WeatherCard extends LitElement {
                 stateObj.attributes.wind_speed != 0
                 ? html`
                   <span class="ha-icon"
-                    ><ha-icon icon="mdi:navigation" style="transform: rotate(${stateObj.attributes.wind_bearing}deg);"></ha-icon
+                    ><ha-icon icon="mdi:navigation" style="transform: rotate(${stateObj.attributes.wind_bearing}deg); display: inline-block;"></ha-icon
                   ></span>
                 `
                 : html`<div style="height: 24px;" ></div>`
