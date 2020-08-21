@@ -66,8 +66,8 @@ function getWindDirectionRotation(direction) {
     "SSE"
   ];
   
-  let index = windDirections.indexOf(direction);
-  return (index * 22.5);
+  let direction = windDirections[direction/22.5];
+  return direction;
 }
 
 function getVigilance(color, alertEntity) {
@@ -166,7 +166,7 @@ class WeatherCard extends LitElement {
 
     const stateObj = this.hass.states[this._config.entity];
     const rainChanceObj = this.hass.states[this._config.rainChanceEntity];
-    const thunderChanceObj = this.hass.states[this._config.thunderChanceEntity];
+    const cloudCoverObj = this.hass.states[this._config.cloudCoverEntity];
     const snowChanceObj = this.hass.states[this._config.snowChanceEntity];
     const freezeChanceObj = this.hass.states[this._config.freezeChanceEntity];
     const alertObj = this.hass.states[this._config.alertEntity];
@@ -292,7 +292,7 @@ class WeatherCard extends LitElement {
                 stateObj.attributes.wind_speed != 0
                 ? html`
                   <span class="ha-icon"
-                    ><ha-icon icon="mdi:navigation" style="transform: rotate(${getWindDirectionRotation(stateObj.attributes.wind_bearing)}deg);"></ha-icon
+                    ><ha-icon icon="mdi:navigation" style="transform: rotate(${stateObj.attributes.wind_bearing}deg);"></ha-icon
                   ></span>
                 `
                 : html`<div style="height: 24px;" ></div>`
@@ -300,7 +300,7 @@ class WeatherCard extends LitElement {
               ${
                 stateObj.attributes.wind_bearing != undefined
                 ? html`
-                  ${stateObj.attributes.wind_bearing}
+                  ${getWindDirectionRotation(stateObj.attributes.wind_bearing)}
                   <br />
                   <div style="height: 24px;" ></div>
                 `
