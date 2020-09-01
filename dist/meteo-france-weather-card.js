@@ -443,6 +443,17 @@ class WeatherCard extends LitElement {
                                 `
                               : ""
                           }
+                          ${
+                            typeof daily.precipitation !== 'undefined'
+                              ? html`
+                                  <br /><span class="rainForcast"
+                                    >${daily.precipitation}${
+                                      this.getUnit("precipitation")
+                                    }</span
+                                  >
+                                `
+                              : ""
+                          }
                         </div>
                       `
                     )
@@ -649,7 +660,7 @@ class WeatherCard extends LitElement {
         .forecast {
           width: 100%;
           margin: 0 auto;
-          height: 9em;
+          height: 11em;
         }
 
         .day {
@@ -682,6 +693,10 @@ class WeatherCard extends LitElement {
 
         .lowTemp {
           color: var(--secondary-text-color);
+        }
+
+        .rainForcast {
+          color: var(--secondary-text-color)
         }
 
         .icon.bigger {
