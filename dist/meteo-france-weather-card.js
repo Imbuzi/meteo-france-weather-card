@@ -516,7 +516,12 @@ class WeatherCard extends LitElement {
         }
         
         .pluie {
-          display: block;
+	  display: flex;
+	  flex-direction: row;
+	  flex-wrap: nowrap;
+	  justify-content: center;
+	  align-items: stretch;
+	  align-content: stretch;
           height: 15px;
           border-radius: 5px;
           padding: 0px;
@@ -530,7 +535,7 @@ class WeatherCard extends LitElement {
           display: block;
           height: 100%;
           float: left;
-          width: calc(100% / 9);
+          width: 100%;
           background-color: var(--paper-item-icon-color);
         }
 
@@ -539,7 +544,6 @@ class WeatherCard extends LitElement {
               --lovelace-background,
               var(--primary-background-color)
           );
-          width: calc(100% / 9 - 1px);
         }
         
         .pluie-element:first-child {
