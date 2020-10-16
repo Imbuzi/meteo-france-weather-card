@@ -331,21 +331,21 @@ class WeatherCard extends LitElement {
         ${
           rainForecastObj != undefined
           ? html`
-            <span class="pluie">
+            <div class="pluie">
               ${
                   html`
                       ${
                         getRainForecast(rainForecastObj).map(
                           forecast => html`
-                            <span class="pluie-element" style="opacity: ${forecast[1]}" title="${forecast[2] + " " + (forecast[0] == 0 ? "actuellement" : "dans " + forecast[0] + " min")}">
-                            </span>
+                            <div class="pluie-element" style="opacity: ${forecast[1]}" title="${forecast[2] + " " + (forecast[0] == 0 ? "actuellement" : "dans " + forecast[0] + " min")}">
+                            </div>
                           `
                         )
                       }
                       
                     `
               }
-            </span>
+            </div>
           `
           : ""
         }
@@ -516,30 +516,23 @@ class WeatherCard extends LitElement {
         }
         
         .pluie {
-          display: block;
+	  display: flex;
+	  flex-direction: row;
+	  flex-wrap: nowrap;
           height: 15px;
-          border-radius: 5px;
           padding: 0px;
-          font-weight: 600;
           color: var(--primary-text-color);
-          margin: 0px;
           margin: 10px 2px;
+	  overflow: hidden;
         }
         
         .pluie-element {
-          display: block;
-          height: 100%;
-          float: left;
-          width: calc(100% / 9);
+          width: 100%;
           background-color: var(--paper-item-icon-color);
-        }
-
-        .pluie-element:not(:last-child) {
           border-right: 1px solid var(
               --lovelace-background,
               var(--primary-background-color)
           );
-          width: calc(100% / 9 - 1px);
         }
         
         .pluie-element:first-child {
@@ -550,6 +543,7 @@ class WeatherCard extends LitElement {
         .pluie-element:last-child {
           border-top-right-radius: 5px;
           border-bottom-right-radius: 5px;
+          border: 0;
         }
 
         .clear {
