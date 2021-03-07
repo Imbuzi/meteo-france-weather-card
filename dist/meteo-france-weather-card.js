@@ -679,11 +679,11 @@ class WeatherCard extends LitElement {
         }
 
         .lowTemp {
-          color: var(--secondary-text-color);
+          font-weight: 300;
         }
 
         .rainForcast {
-          color: var(--secondary-text-color)
+          font-weight: 300;
         }
 
         .icon.bigger {
