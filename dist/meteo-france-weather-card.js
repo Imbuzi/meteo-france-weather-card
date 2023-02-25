@@ -155,7 +155,7 @@ function processForecast(lang, forecast) {
       }
 
       processedForecast.push({
-        date: hourMode ? date.toLocaleTimeString(lang, {hour: "2-digit"}) : date.toLocaleDateString(lang, {weekday: "short"}),
+        formattedDate: hourMode ? date.toLocaleTimeString(lang, {hour: "2-digit"}) : date.toLocaleDateString(lang, {weekday: "short"}),
         condition: forecast[i].condition.toLowerCase(),
         temperature: forecast[i].temperature,
         templow : forecast[i].templow,
@@ -207,7 +207,6 @@ class WeatherCard extends LitElement {
     const alertObj = this.hass.states[this._config.alertEntity];
     const rainForecastObj = this.hass.states[this._config.rainForecastEntity];
     const uvObj = this.hass.states[this._config.uvEntity];
-    const processedForecast = processForecast(stateObj.attributes.forecast);
 
     if (!stateObj) {
       return html`
@@ -227,6 +226,7 @@ class WeatherCard extends LitElement {
     }
 
     const lang = this.hass.selectedLanguage || this.hass.language;
+    const processedForecast = processForecast(lang, stateObj.attributes.forecast);
 
     const next_rising = new Date(
       this.hass.states["sun.sun"].attributes.next_rising
