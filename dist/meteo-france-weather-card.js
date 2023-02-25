@@ -134,6 +134,38 @@ function hasConfigOrEntityChanged(element, changedProps) {
   return true;
 }
 
+function processForecast(lang, forecast) {
+  console.log(forecast);
+  if (forecast === undefined || forecast.length == 0) {
+    return [];
+  } else {
+    let processedForecast = [];
+    for (let i=0; i<forecast.length; i++) {
+      const first = (i == 0);
+      const notLast = (i + 1 < forecast.length);
+      const date = new Date(forecast[i].datetime);
+      const millisecondsInOnHour = 3600 * 1000;
+      let hourMode = false;
+      if (first && notLast) {
+        const timediff = new Date(forecast[i+1].datetime) - date;
+        hourMode = (timediff == millisecondsInOnHour);
+      } else if (!first) {
+        const timediff = date - new Date(forecast[i-1].datetime);
+        hourMode = (timediff == millisecondsInOnHour);
+      }
+
+      processedForecast.push({
+        date: hourMode ? date.toLocaleTimeString(lang, {hour: "2-digit"}) : date.toLocaleDateString(lang, {weekday: "short"}),
+        condition: forecast[i].condition.toLowerCase(),
+        temperature: forecast[i].temperature,
+        templow : forecast[i].templow,
+        precipitation : forecast[i].precipitation
+      });
+    }
+    return processedForecast;
+  }
+}
+
 class WeatherCard extends LitElement {
   static get properties() {
     return {
@@ -175,6 +207,7 @@ class WeatherCard extends LitElement {
     const alertObj = this.hass.states[this._config.alertEntity];
     const rainForecastObj = this.hass.states[this._config.rainForecastEntity];
     const uvObj = this.hass.states[this._config.uvEntity];
+    const processedForecast = processForecast(stateObj.attributes.forecast);
 
     if (!stateObj) {
       return html`
@@ -404,40 +437,32 @@ class WeatherCard extends LitElement {
             : ""
         }
         ${
-          stateObj.attributes.forecast &&
-          stateObj.attributes.forecast.length > 0
+          processedForecast.length > 0
             ? html`
                 <div class="forecast clear">
                   ${
-                    stateObj.attributes.forecast.slice(0, 5).map(
-                      daily => html`
+                    processedForecast.slice(0, 5).map(
+                      element => html`
                         <div class="day">
-                          <span class="dayname"
-                            >${
-                              new Date(daily.datetime).toLocaleDateString(
-                                lang,
-                                {
-                                  weekday: "short"
-                                }
-                              )
-                            }</span
-                          >
+                          <span class="dayname">
+                            ${element.formattedDate}
+                          </span>
                           <br /><i
                             class="icon"
                             style="background: none, url(${
-                              this.getWeatherIcon(daily.condition.toLowerCase())
+                              this.getWeatherIcon(element.condition)
                             }) no-repeat; background-size: contain;"
                           ></i>
                           <br /><span class="highTemp"
-                            >${daily.temperature}${
+                            >${element.temperature}${
                               this.getUnit("temperature")
                             }</span
                           >
                           ${
-                            typeof daily.templow !== 'undefined'
+                            typeof element.templow !== 'undefined'
                               ? html`
                                   <br /><span class="lowTemp"
-                                    >${daily.templow}${
+                                    >${element.templow}${
                                       this.getUnit("temperature")
                                     }</span
                                   >
@@ -445,10 +470,10 @@ class WeatherCard extends LitElement {
                               : ""
                           }
                           ${
-                            typeof daily.precipitation !== 'undefined'
+                            typeof element.precipitation !== 'undefined'
                               ? html`
                                   <br /><span class="rainForcast"
-                                    >${daily.precipitation}${
+                                    >${element.precipitation}${
                                       this.getUnit("precipitation")
                                     }</span
                                   >
