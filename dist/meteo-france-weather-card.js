@@ -135,7 +135,6 @@ function hasConfigOrEntityChanged(element, changedProps) {
 }
 
 function processForecast(lang, forecast) {
-  console.log(forecast);
   if (forecast === undefined || forecast.length == 0) {
     return [];
   } else {
